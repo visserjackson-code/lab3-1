@@ -158,22 +158,37 @@ inigo.greeting(rugen);
 
 const basketballGame = {
 score: 0,
+fouls: 0,
+foul() { 
+this.fouls++;
+return this;
+},
 freeThrow() {
 this.score++;
+return this;
 },
 basket() {
 this.score += 2;
+return this;
 },
 threePointer() {
 this.score += 3;
+return this;
 },
 halfTime() {
-console.log('Halftime score is '+this.score);
+console.log(`HALFTIME! Score: ${this.score} Fouls: ${this.fouls}`);
+return this;
+},
+fullTime() {
+    console.log(`GAME! Score: ${this.score} Fouls: ${this.fouls}`);
+    return this;
 }
 }
 //modify each of the above object methods to enable function chaining as below:
 
-// basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime();
+basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime();
+
+basketballGame.foul().freeThrow().freeThrow().threePointer().basket().halfTime().threePointer().threePointer().basket().foul().freeThrow().fullTime();
 
 // 8. The object below represents a single city.
 // a) Write a function that takes an object as an argument and uses a for...in loop to access
