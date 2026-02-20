@@ -47,6 +47,7 @@ undefined === null // false
 
 
 
+//2 Which of the below are not giving the right answer? Why are they not correct? How can we fix them?
 
 
 
