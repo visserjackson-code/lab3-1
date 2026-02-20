@@ -77,4 +77,23 @@ if (null) console.log('null is true') // will not print, null becomes 0 which is
 if (-1) console.log('negative is true')  // will print, a non-zero number is true
 if (1) console.log('positive is true') // will print, 1 is true
 
+// 4 Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a
+// and b. What does the ‘+=’ do?
 
+let a = 2, b = 3;
+let result = `${a} + ${b} is `;
+if (a + b < 10) {
+result += 'less than 10';
+} else {
+result += 'greater than 10';
+}
+// the += operator concatonates the string after it to the end of result (which is a string)
+
+//formatting of the conditonal operator from js.info | let result = condition ? value1 (truthy) : value2 (not truthy);
+
+let aNew = 7, bNew = 3
+
+let resultNew = `${aNew} + ${bNew} is `;
+aNew + bNew < 10 ? resultNew += 'less than 10' : resultNew += 'greater than or equal to 10'; //edited this so '7 + 3 is greater than 10' never prints
+
+console.log(resultNew);
