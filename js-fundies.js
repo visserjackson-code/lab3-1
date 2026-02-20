@@ -49,7 +49,25 @@ undefined === null // false
 
 //2 Which of the below are not giving the right answer? Why are they not correct? How can we fix them?
 
+let three = "3"
+let four = "4"
+let thirty = "30"
+//what is the value of the following expressions?
+let addition = three + four // 34 (wrong answer) 
+let additionCorrect = Number(three) + Number(four) // 7 (right answer)
 
+let multiplication = three * four // 12 (right answer)
+let division = three / four // .75 (right answer)
+let subtraction = three - four // -1 (right answer
+
+let lessThan1 = three < four //true (right answer but derived the wrong way )
+let lessThan2 = thirty < four //true (wrong answer)
+//because comparing strings like this can return unexpected results, we can use the Number function first before comparing
+
+let lessThan1Correct = Number(three) < Number(four); // now this is true because 4 > 3
+let lessThan2Correct = Number(thirty) < Number(four); // now this is false because 4 < 30
+
+console.log(lessThan1, lessThan1Correct, lessThan2, lessThan2Correct); //true true true false
 
 
 
