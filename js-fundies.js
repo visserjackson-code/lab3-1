@@ -69,6 +69,12 @@ let lessThan2Correct = Number(thirty) < Number(four); // now this is false becau
 
 console.log(lessThan1, lessThan1Correct, lessThan2, lessThan2Correct); //true true true false
 
+// 3. which of the console.log messages will print? Why?
 
+if (0) console.log('#1 zero is true')  // will not print, 0 is false while 1 is true
+if ("0") console.log('#2 zero is true') // this will print. the string exists, which counts as true so 
+if (null) console.log('null is true') // will not print, null becomes 0 which is false
+if (-1) console.log('negative is true')  // will print, a non-zero number is true
+if (1) console.log('positive is true') // will print, 1 is true
 
 
