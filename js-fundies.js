@@ -97,3 +97,24 @@ let resultNew = `${aNew} + ${bNew} is `;
 aNew + bNew < 10 ? resultNew += 'less than 10' : resultNew += 'greater than or equal to 10'; //edited this so '7 + 3 is greater than 10' never prints
 
 console.log(resultNew);
+
+// 5. Rewrite the following function using: a) function expression syntax, and b) arrow function
+// syntax. Test each version to make sure they work the same.
+
+function getGreeting(name) {
+return 'Hello ' + name + '!';
+}
+
+const getGreetingExpression = function(name) {
+    return `Hello ${name}!`
+}
+
+let myGreeting = getGreetingExpression('Jackson');
+console.log(myGreeting);
+
+const getGreetingArrow = (name2) => `Hello ${name2}!`;
+
+let myGreeting2 = getGreetingArrow('quiescent'); //old gaming alias
+
+console.log(myGreeting2);
+
