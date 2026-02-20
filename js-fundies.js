@@ -145,3 +145,46 @@ person.numFingers === 6 ? 'You killed my father. Prepare to die!' : 'Nice to mee
 }
 inigo.greeting(westley);
 inigo.greeting(rugen);
+
+// 7. The following object represents a basketball game and keeps track of the score as the
+// game progresses.
+// a) Modify each of the methods so that they can be ‘chained’ together and the last line of
+// the example code works
+// b) Add a new method to print the full time final score
+// c) Add a new object property to keep track of the number of fouls and a method to
+// increment it, similar but separate to the score. Include the foul count in the half time and
+// full time console messages
+// d) Test your object by chaining all the method calls together in different combinations.
+
+// 8. The object below represents a single city.
+// a) Write a function that takes an object as an argument and uses a for...in loop to access
+// and print to the console each of those object properties and their values. Test it using
+// the sydney object below.
+// b) Create a new object for a different city with different properties and call your function
+// again with the new object.
+
+const sydney = {
+name: 'Sydney',
+population: 5_121_000,
+state: 'NSW',
+founded: '26 January 1788*',
+timezone: 'Australia/Sydney'
+}
+
+const seattle = {
+    name: 'Seattle',
+    population: 780_995,
+    state: 'US_WA',
+    founded: "November 13th, 1851*",
+    timezone: "PST"
+
+}
+
+const printCity = (city) => {
+    for (prop in city) {
+        console.log(`${prop}: ${city[prop]}`);
+    }
+};
+
+printCity(sydney);
+printCity(seattle);
