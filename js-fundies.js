@@ -156,6 +156,25 @@ inigo.greeting(rugen);
 // full time console messages
 // d) Test your object by chaining all the method calls together in different combinations.
 
+const basketballGame = {
+score: 0,
+freeThrow() {
+this.score++;
+},
+basket() {
+this.score += 2;
+},
+threePointer() {
+this.score += 3;
+},
+halfTime() {
+console.log('Halftime score is '+this.score);
+}
+}
+//modify each of the above object methods to enable function chaining as below:
+
+// basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime();
+
 // 8. The object below represents a single city.
 // a) Write a function that takes an object as an argument and uses a for...in loop to access
 // and print to the console each of those object properties and their values. Test it using
@@ -225,3 +244,21 @@ console.log(teamSports, dog1, cat1); //they have all changed becuase this just c
 
 moreSports = ["Association Football", ...teamSports, "Basketball", "Gridiron Football", "Skiiing"];
 cat2 = {...cat1, name: "Little", breed: "Large"};
+
+
+// 10. The following constructor function creates a new Person object with the given name and
+// age values.
+// a) Create a new person using the constructor function and store it in a variable
+// b) Create a second person using different name and age values and store it in a separate
+// variable
+// c) Print out the properties of each person object to the console
+// d) Rewrite the constructor function as a class called PersonClass and use it to create a
+// third person using different name and age values. Print it to the console as well.
+// e) Add a canDrive method to both the constructor function and the class that returns true
+// if the person is old enough to drive.
+
+function Person(name, age) {
+this.name = name;
+this.age = age;
+this.human = true;
+}
