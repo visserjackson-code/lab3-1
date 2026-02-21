@@ -49,3 +49,80 @@ console.log('truncateConditional("test", 2): ', truncateConditional("test", 2));
 
 truncateConditional("test", 4)
 console.log('truncateConditional("test", 4): ', truncateConditional("test", 4));
+
+
+// 3. Use the following animals array for the below tasks. Test each one by printing the result to
+// the console. Review the following link for tips:
+
+// https://developer.mozilla.org/en-
+// US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+
+// e) Write a function findMatchingAnimals(beginsWith) that returns a new array
+// containing all the animals that begin with the beginsWith string. Try to make it work
+// regardless of upper/lower case.
+
+const animals = ['Tiger', 'Giraffe'];
+
+// a) Add 2 new values to the end
+animals.push('Zebra', 'Horse');
+
+// b) Add 2 new values to the beginning
+animals.unshift('Human', 'Shark');
+
+console.log(animals)
+
+// c) Sort the values alphabetically
+animals.sort((a, b) => {
+    //ignore cases so we can properly compare
+    const compareA = a.toUpperCase();
+    const compareB = b.toUpperCase();
+
+    if (compareA < compareB) return -1;
+
+    if (compareA > compareB) return 1;
+
+    return 0; //names are equal if return hasn't triggered up until now
+});
+
+
+console.log(animals);
+
+// d) Write a function replaceMiddleAnimal(newValue) that replaces the value in the
+// middle of the animals array with newValue
+
+const replaceMiddleAnimal = (newValue) => {
+        return animals.splice(2, 1, newValue);
+    }
+   
+
+
+
+// replaceMiddleAnimal("Dolphin");
+// replaceMiddleAnimal("Hornet");
+// replaceMiddleAnimal("Cheetah");
+
+// e) Write a function findMatchingAnimals(beginsWith) that returns a new array
+// containing all the animals that begin with the beginsWith string. Try to make it work
+// regardless of upper/lower case.
+
+
+const findMatchingAnimals = (beginsWith) => {
+    if (typeof beginsWith !== 'string') return [];
+    const prefix = beginsWith.toLowerCase();
+    if (prefix.length !== 0) {
+    return animals.filter(animal => animal.toLowerCase().startsWith(prefix));
+    }
+    return [];
+}
+
+findMatchingAnimals('H');
+console.log('findMatchingAnimals(H): ', findMatchingAnimals('H'));
+findMatchingAnimals("Zeb")
+console.log('findMatchingAnimals("Zeb"): ', findMatchingAnimals("Zeb"));
+findMatchingAnimals(true)
+console.log('findMatchingAnimals(true): ', findMatchingAnimals(true));
+findMatchingAnimals("")
+console.log('findMatchingAnimals(""): ', findMatchingAnimals(""));
+
+
