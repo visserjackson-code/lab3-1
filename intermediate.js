@@ -22,3 +22,30 @@ console.log('ucFirstLetters("Donec vitae aliquam metus. Sed euismod cursus dui v
 console.log('ucFirstLetters("Aliquam sem sapien, semper ut ultricies eu, pulvinar iaculis sem."): ', ucFirstLetters("Aliquam sem sapien, semper ut ultricies eu, pulvinar iaculis sem."));
 //this is a real tweet from Kevin Durant's burner account
 console.log('ucFirstLetters("Bills gotta think about moving Josh Allen to tight end and gettin a real quarterback n there"): ', ucFirstLetters("Bills gotta think about moving Josh Allen to tight end and gettin a real quarterback n there"));
+
+// Create a function truncate(str, max) that truncates a given string of text if its total
+// length is greater than the max length. It should return either the truncated text, with an
+// ellipsis (...) added to the end if it was too long, or the original text otherwise.
+// b) Write another variant of the truncate function that uses a conditional operator.
+
+const truncate = (str, max) => {
+    if (str.length > max) return str.slice(0, max) + "...";
+    
+    return str;
+}
+
+const truncateConditional = (str, max) => {
+    return str.length > max ? str.slice(0, max) + "..." : str;
+}
+
+// truncate("test", 2)
+// console.log('truncate("test", 2): ', truncate("test", 2));
+
+// truncate("test", 5)
+// console.log('truncate("test", 5): ', truncate("test", 5));
+
+truncateConditional("test", 2)
+console.log('truncateConditional("test", 2): ', truncateConditional("test", 2));
+
+truncateConditional("test", 4)
+console.log('truncateConditional("test", 4): ', truncateConditional("test", 4));
