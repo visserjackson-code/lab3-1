@@ -191,3 +191,97 @@ console.log('camelCase("margin-left");: ', camelCase("margin-left"));
 camelCase2("background-color-red")
 console.log('camelCase2("background-color-red"): ', camelCase2("background-color-red"));
 
+camelCase3("what-is-going-on")
+console.log('camelCase3("what-is-going-on"): ', camelCase3("what-is-going-on"));
+
+let twentyCents = 0.20
+let tenCents = 0.10
+let fixedTwenty = twentyCents.toFixed(2);
+let fixedTen = tenCents.toFixed(2);
+(fixedTwenty + fixedTen) //why is this not working?
+console.log('(fixedTwenty + fixedTen) : ', (fixedTwenty + fixedTen));
+
+/* a) Explain why the above code returns the wrong answer
+        This returns the wrong answer because floating point numbers cant' be accurately converted to binary
+b) Create a function currencyAddition(float1, float2) which safely adds the two
+decimal numbers float1 and float2 and returns the correct float result.
+
+
+c) Create a function currencyOperation(float1, float2, operation) which
+safely performs the given operation (either +, -, / or *) on the two numbers and returns
+
+the correct float result. https://developer.mozilla.org/en-
+US/docs/Web/JavaScript/Reference/Statements/switch may be useful. */
+
+const currencyAddition = (float1, float2) => {
+
+    if(typeof float1 !== "number" || typeof float2 != "number") throw console.error("Both arguments must be numbers.");
+    
+
+        
+    function getDecimals(float) {
+        let parts = float.toString().split('.');
+        return parts[1] ? parts[1].length : 0;
+
+    }
+    
+
+     let max = Math.max(getDecimals(float1), getDecimals(float2)); //this is partly extension d), it supports different amounts by multiplying
+
+     let num1 = float1 * Math.pow(10, max), num2 = float2 * Math.pow(10, max);
+     let numTotal = num1 + num2;
+
+     let newDecimals = numTotal / Math.pow(10, max);
+
+     return newDecimals.toFixed(2);
+
+    }
+console.log('currencyAddition(twentyCents, tenCents);: ', currencyAddition(twentyCents, tenCents));
+
+
+const currencyOperation =  (float1, float2, operation) => {
+
+    operation = operation.toString();
+
+     function getDecimals(float) {
+        let parts = float.toString().split('.');
+        return parts[1] ? parts[1].length : 0;
+
+    }
+    let max = Math.max(getDecimals(float1), getDecimals(float2)); 
+    //extension d) is by default, base 10 so just takes the longest decimal and multiplies 10^that
+
+    let num1 = float1 * Math.pow(10, max), num2 = float2 * Math.pow(10, max);
+
+    let result = 0;
+    switch(operation) {
+        case "+": 
+            result =  (num1 + num2) / Math.pow(10, max);
+            break;
+        
+        case "-": 
+            result = (num1 - num2) / Math.pow(10, max);
+            break;
+
+        case "*": 
+             result = (num1 * num2) / (Math.pow(Math.pow(10, max), 2)); 
+             break;
+        
+        case "/": 
+             result = (num1 / num2);
+             break;
+        
+        
+        default: 
+
+        throw new console.error("Invalid operand!");
+    }        
+    return result.toFixed(2);
+}
+
+currencyOperation(.5 , .2 , "-")
+console.log('currencyOperation(1 .2 , "-"): ', currencyOperation(.5 , .2 , "-"));
+currencyOperation(1.25, 3.00, "*");
+console.log('currencyOperation(1.25, 3, "*"): ', currencyOperation(1.25, 3, "*"));
+currencyOperation(6.50, 2, "/");
+console.log('currencyOperation(6.50, 2, "/"): ', currencyOperation(6.50, 2, "/"));
