@@ -126,3 +126,23 @@ findMatchingAnimals("")
 console.log('findMatchingAnimals(""): ', findMatchingAnimals(""));
 
 
+// 4. Write a function camelCase(cssProp) that changes dash-separated CSS properties like
+// 'margin-left' into camel-cased 'marginLeft'.
+// The function should remove all dashes, and uppercase the first letter of each word after a
+// dash.
+// b) Create variants of the camelCase function that use different types of for loops, and
+// c) with and without the conditional operator.
+
+const camelCase = (cssProp) => {
+     //remove all dashes, then char + 1 needs to be toUppercase
+    let reactProp = ""
+    for (let i = 0; i < cssProp.length; i++) {
+        if (cssProp[i] === "-") {
+            reactProp += cssProp[i+1].toUpperCase();
+            i++; //skip over css prop 
+        }
+    }
+}
+
+
+
