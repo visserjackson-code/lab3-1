@@ -139,10 +139,34 @@ const camelCase = (cssProp) => {
     for (let i = 0; i < cssProp.length; i++) {
         if (cssProp[i] === "-") {
             reactProp += cssProp[i+1].toUpperCase();
-            i++; //skip over css prop 
+            i++; //skip over css prop now
         }
+        else {
+            reactProp+= cssProp[i];
+        }
+    }
+    return reactProp;
+}
+
+// Split cssProp by '-' into parts array
+// Iterate over parts with for...of (with index tracking)
+// First part stays lowercase, remaining parts get first char uppercase
+// Join all parts back together
+
+const camelCase2 = (cssProp) => {
+    let split = cssProp.split("-")
+    let reactProp = '';
+    for (s in split) {
     }
 }
 
 
+
+
+
+camelCase("margin-left");
+console.log('camelCase("margin-left");: ', camelCase("margin-left"));
+
+camelCase2("background-color-red")
+console.log('camelCase2("background-color-red"): ', camelCase2("background-color-red"));
 
