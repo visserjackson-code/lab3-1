@@ -285,3 +285,69 @@ currencyOperation(1.25, 3.00, "*");
 console.log('currencyOperation(1.25, 3, "*"): ', currencyOperation(1.25, 3, "*"));
 currencyOperation(6.50, 2, "/");
 console.log('currencyOperation(6.50, 2, "/"): ', currencyOperation(6.50, 2, "/"));
+
+
+// 6. Create a function unique(duplicatesArray) which takes an array parameter that may
+// include duplicates. Your function should return an array containing only the unique values
+// from duplicatesArray.
+// Test with the following arrays and create another one of your own.
+
+const unique = (duplicatesArray) => {
+    let noDupes = [];
+
+    for (item of duplicatesArray) {
+        if(!noDupes.includes(item)) {
+            noDupes.push(item);
+        }
+    }
+
+    return noDupes;
+}
+
+const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'red', 'blue', 'yellow']
+const testScores = [55, 84, 97, 63, 55, 32, 84, 91, 55, 43]
+const mix = [true, false, true, "Zebra", "Horse", "Eleplant", "4", 4]
+console.log(unique(colors)) // [ 'red', 'green', 'blue', 'yellow', 'orange' ]
+console.log(unique(testScores)) // [ 55, 84, 97, 63, 32, 91, 43 ]
+console.log(unique(mix));
+
+
+// Use the following array of book objects to practice the array functions for map, find and
+// filter. Test each of your answers to the below tasks.
+
+
+const books = [
+{ id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
+{ id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
+{ id: 3, title: '1984', author: 'George Orwell', year: 1949 },
+{ id: 4, title: 'Brave New World', author: 'Aldous Huxley', year: 1932 },
+{ id: 5, title: 'The Catcher in the Rye', author: 'J.D. Salinger', year: 1951 },
+];
+
+// Write a function getBookTitle(bookId) that uses the find function to return the
+// title of the book object with the matching id.
+
+const getBookTitle = (bookID) => {
+    return books.find(item => item.id == bookID).title;
+}
+console.log('getBookTitle(4): ', getBookTitle(4));
+
+// Write a function getOldBooks() that uses the filter function to return all book
+// objects written before 1950.
+
+const getOldBooks = () => {
+        return books.filter(book => book.year < 1950);
+}
+
+console.log('getOldBooks(): ', getOldBooks());
+
+// Write a function addGenre() that uses the map function to add a new genre property
+// to all of the above books, with the value ‘classic’.
+
+const addGenre = () => {
+    console.log("Before adding new genre:", books);
+    books.map((book) => {
+        book.genre = "Classic";
+})
+    console.log("After adding new genre:", books);
+}
