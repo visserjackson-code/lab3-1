@@ -360,7 +360,40 @@ names start with authorInitial.
 e) (Extension) Write a function latestBook() that uses find and forEach to get the
 book with the most recent publication date.
 
-
+//will circle back to this when I am more caught up - JV 2/22/26
 
 */
 
+const phoneBookABC = new Map() //an empty map to begin with
+phoneBookABC.set('Annabelle', '0412312343')
+phoneBookABC.set('Barry', '0433221117')
+phoneBookABC.set('Caroline', '0455221182')
+
+/* a) Create a new phoneBookDEF Map to store names beginning with D, E or F
+b) Initialise the contents of phoneBookDEF by passing in an array of keys/values
+c) Update the phone number for Caroline
+d) Write a function printPhoneBook(contacts) that prints the names and phone
+numbers in the given Map
+e) Combine the contents of the two individual Maps into a single phoneBook Map
+f) Print out the full list of names in the combined phone book */
+
+
+const phoneBookDEF = new Map([
+    ['Danny Dimes', '3214321235'],
+    ['Ekans', '5641235645'],
+    ['Felloffafeller' , '5673458676']
+])
+
+phoneBookABC.set('Caroline', '3');
+
+const printPhoneBookHelper = (value, key) => {
+    console.log(`Name: ${key} Phone #: ${value} \\n`)
+}
+
+const printPhoneBook = (contacts) => {
+            contacts.forEach(printPhoneBookHelper)
+    }
+
+
+printPhoneBook(phoneBookABC);
+printPhoneBook(phoneBookDEF);
