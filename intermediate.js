@@ -345,9 +345,22 @@ console.log('getOldBooks(): ', getOldBooks());
 // to all of the above books, with the value ‘classic’.
 
 const addGenre = () => {
-    console.log("Before adding new genre:", books);
     books.map((book) => {
         book.genre = "Classic";
 })
-    console.log("After adding new genre:", books);
+return books;
 }
+
+addGenre();
+console.log('addGenre(): ', addGenre());
+
+/* (Extension) Write a function getTitles(authorInitial) that uses map and
+filter together to return an array of book titles for books written by authors whose
+names start with authorInitial.
+e) (Extension) Write a function latestBook() that uses find and forEach to get the
+book with the most recent publication date.
+
+
+
+*/
+
