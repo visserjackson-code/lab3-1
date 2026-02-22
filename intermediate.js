@@ -387,7 +387,7 @@ const phoneBookDEF = new Map([
 phoneBookABC.set('Caroline', '3');
 
 const printPhoneBookHelper = (value, key) => {
-    console.log(`Name: ${key} Phone #: ${value} \\n`)
+    console.log(`Name: ${key} Phone #: ${value} \n`);
 }
 
 const printPhoneBook = (contacts) => {
@@ -396,4 +396,53 @@ const printPhoneBook = (contacts) => {
 
 
 printPhoneBook(phoneBookABC);
+console.log("---------------");
 printPhoneBook(phoneBookDEF);
+console.log("---------------");
+
+const mergeMaps = (map1, map2) => {
+  let combinedPhoneBook = new Map(map1);
+  map2.forEach((v, k) => combinedPhoneBook.set(k, v));
+  return combinedPhoneBook;
+};
+
+printPhoneBook(mergeMaps(phoneBookABC, phoneBookDEF));
+
+let salaries = {
+  Timothy: 35000,
+  David: 25000,
+  Mary: 55000,
+  Christina: 75000,
+  James: 43000,
+};
+
+/* Write a function sumSalaries(salaries) that calculates and returns the total of all
+salaries
+b) Write a function topEarner(salaries) that calculates and returns the name of the
+person earning the highest salary */
+
+const sumSalaries = (salaries) => {
+  let total = 0;
+  for (let value of Object.values(salaries)) {
+    total += value;
+  }
+  return total;
+};
+
+const topEarner = (salaries) => {
+  let moneybags = "";
+  let topSal = 0;
+  for (let [key, value] of Object.entries(salaries)) {
+    value > topSal ? ((topSal = value), (moneybags = key)) : null;
+  }
+
+  return moneybags;
+};
+
+sumSalaries(salaries);
+console.log("sumSalaries(salaries): ", sumSalaries(salaries));
+
+topEarner(salaries);
+console.log("topEarner(salaries): ", topEarner(salaries));
+
+
