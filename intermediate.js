@@ -161,13 +161,20 @@ const camelCase2 = (cssProp) => {
     return reactProp;
 }
 
-//for in loop, though I have to track index because this is meant for objects. 
+//for in loop, though I have to track index because this is meant for objects.
+
 
 const camelCase3 = (cssProp) => {
     let split = cssProp.split("-")
     let reactProp = '';
     for (let i in split) {
-        i == 0 ? reactProp += split[i] : reactProp += (split[i][0].toUpperCase() + split[i].slice(1));
+        //this is the clunkier solution imo so did the if else block here
+        if (i == 0) {
+            reactProp += split[i]
+        }
+        else {
+            reactProp += (split[i][0].toUpperCase()) +split[i].slice(1);
+        }
     }
     return reactProp;
 }
