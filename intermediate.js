@@ -148,17 +148,31 @@ const camelCase = (cssProp) => {
     return reactProp;
 }
 
-// Split cssProp by '-' into parts array
-// Iterate over parts with for...of (with index tracking)
-// First part stays lowercase, remaining parts get first char uppercase
-// Join all parts back together
+
+//for of loop, splitting and joining the screen
 
 const camelCase2 = (cssProp) => {
     let split = cssProp.split("-")
     let reactProp = '';
-    for (s in split) {
+    for (word of split) {
+        word == split[0] ? reactProp += word : reactProp += (word[0].toUpperCase() + word.slice(1));
     }
+    console.dir(reactProp);
+    return reactProp;
 }
+
+//for in loop, though I have to track index because this is meant for objects. 
+
+const camelCase3 = (cssProp) => {
+    let split = cssProp.split("-")
+    let reactProp = '';
+    for (let i in split) {
+        i == 0 ? reactProp += split[i] : reactProp += (split[i][0].toUpperCase() + split[i].slice(1));
+    }
+    return reactProp;
+}
+
+
 
 
 
