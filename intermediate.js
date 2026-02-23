@@ -446,3 +446,57 @@ topEarner(salaries);
 console.log("topEarner(salaries): ", topEarner(salaries));
 
 
+
+
+const today = new Date();
+console.log("Current time is " + today.toLocaleTimeString());
+console.log(today.getHours() + " hours have passed so far today");
+
+/* 
+
+d) Write a function daysInBetween(date1, date2) which calculates and returns the
+amount of days in between the two given dates. */
+
+//Print the total number of minutes that have passed so far today
+console.log(
+  today.getHours() * 60 +
+    today.getMinutes() +
+    " minutes have passed so far today",
+);
+
+//b) Print the total number of seconds that have passed so far today
+console.log(
+  today.getHours() * 60 * 60 +
+    today.getMinutes() * 60 +
+    today.getSeconds() +
+    " seconds have passed so far today",
+);
+
+// Calculate and print your age as: 'I am x years, y months and z days old'
+const jacksonBday = new Date("September 17, 2000");
+const bernthday = new Date("June 19, 1999");
+console.dir(jacksonBday);
+
+const showMyAge = (birthday) => {
+  const today = new Date();
+
+  let years = today.getFullYear() - birthday.getFullYear();
+  let months = today.getMonth() - birthday.getMonth();
+  let days = today.getDate() - birthday.getDate();
+
+  //if birthday day in a month hasn't occured, adjust and wrap back
+  if (days < 0) {
+    months--;
+    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+  //if month hasn't occured, subtract year and add needed months instead
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  console.log(`I am ${years} years, ${months} months and ${days} days old!`);
+};
+
+showMyAge(jacksonBday);
+showMyAge(bernthday);
