@@ -475,6 +475,10 @@ console.log(
 // Calculate and print your age as: 'I am x years, y months and z days old'
 const jacksonBday = new Date("September 17, 2000");
 const bernthday = new Date("June 19, 1999");
+
+const startDate = new Date("Febuary 23, 2025");
+const today1 = new Date();
+
 console.dir(jacksonBday);
 
 const showMyAge = (birthday) => {
@@ -500,3 +504,16 @@ const showMyAge = (birthday) => {
 
 showMyAge(jacksonBday);
 showMyAge(bernthday);
+
+// d) Write a function daysInBetween(date1, date2) which calculates and returns the
+// amount of days in between the two given dates.
+
+const daysInBetween = (date1, date2) => {
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const diff = Math.abs(date2 - date1);
+
+    return Math.floor(diff/ msPerDay);
+}
+
+console.log(`It has been ${daysInBetween(startDate, today1)} days since I made the best decision of my life (so far). I love you.`)
+
