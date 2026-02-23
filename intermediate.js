@@ -515,5 +515,6 @@ const daysInBetween = (date1, date2) => {
     return Math.floor(diff/ msPerDay);
 }
 
-console.log(`It has been ${daysInBetween(startDate, today1)} days since I made the best decision of my life (so far). I love you.`)
+console.log(`It has been ${daysInBetween(startDate, today1)} days
+since I made the best decision of my life (so far). I love you.`);
 
